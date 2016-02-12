@@ -45,6 +45,26 @@ class Example extends Instrumented {
 }
 ```
 
+## Download
+
+SBT:
+```
+libraryDependencies += "com.flipkart" %% "espion" % "1.0.0"
+```
+
+Maven:
+```
+<properties>
+    <scala.version>2.11.7</scala.version>
+    <scala.dep.version>2.11</scala.dep.version>
+</properties>
+<dependency>
+    <groupId>com.flipkart</groupId>
+    <artifactId>espion_${scala.dep.version}</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ## Support
 
 If you find a bug, please open an [issue](https://github.com/Flipkart/espion/issues), or send a pull request with your changes :)
