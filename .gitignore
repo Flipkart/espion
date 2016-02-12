@@ -1,17 +1,40 @@
-*.class
-*.log
+### JetBrains template
 
-# sbt specific
-.cache
-.history
-.lib/
-dist/*
+*.iml
+
+## Directory-based project format:
+.idea/
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
 target/
 lib_managed/
 src_managed/
 project/boot/
+.history
+.cache
+### Scala template
+*.class
+*.log
+
+# sbt specific
+.lib/
+dist/*
 project/plugins/project/
 
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+
+
+
