@@ -65,6 +65,29 @@ Maven:
 </dependency>
 ```
 
+Add in the following repositories, incase you are not yet including jCenter in your list of repositories.
+
+SBT:
+```
+resolvers += Resolver.jcenterRepo
+```
+
+Maven:
+```
+<repositories>
+  <repository>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+    <id>central</id>
+    <name>bintray</name>
+    <url>http://jcenter.bintray.com</url>
+  </repository>
+</repositories>
+```
+
+
+
 ## Support
 
 If you find a bug, please open an [issue](https://github.com/Flipkart/espion/issues), or send a pull request with your changes :)
