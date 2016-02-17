@@ -49,7 +49,13 @@ class Example extends Instrumented {
 
 SBT:
 ```
+resolvers += Resolver.jcenterRepo
 libraryDependencies += "com.flipkart" %% "espion" % "1.0.0"
+```
+
+Then following in build.sbt
+```
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
 ```
 
 Maven:
@@ -63,17 +69,6 @@ Maven:
     <artifactId>espion_${scala.dep.version}</artifactId>
     <version>1.0.0</version>
 </dependency>
-```
-
-Add in the following repositories, incase you are not yet including jCenter in your list of repositories.
-
-SBT:
-```
-resolvers += Resolver.jcenterRepo
-```
-
-Maven:
-```
 <repositories>
   <repository>
     <snapshots>
