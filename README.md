@@ -45,6 +45,44 @@ class Example extends Instrumented {
 }
 ```
 
+## Download
+
+SBT:
+```
+resolvers += Resolver.jcenterRepo
+libraryDependencies += "com.flipkart" %% "espion" % "1.0.0"
+```
+
+Then following in build.sbt
+```
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
+```
+
+Maven:
+```
+<properties>
+    <scala.version>2.11.7</scala.version>
+    <scala.dep.version>2.11</scala.dep.version>
+</properties>
+<dependency>
+    <groupId>com.flipkart</groupId>
+    <artifactId>espion_${scala.dep.version}</artifactId>
+    <version>1.0.0</version>
+</dependency>
+<repositories>
+  <repository>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+    <id>central</id>
+    <name>bintray</name>
+    <url>http://jcenter.bintray.com</url>
+  </repository>
+</repositories>
+```
+
+
+
 ## Support
 
 If you find a bug, please open an [issue](https://github.com/Flipkart/espion/issues), or send a pull request with your changes :)
