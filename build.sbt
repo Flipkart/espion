@@ -1,4 +1,3 @@
-import bintray.Keys._
 
 organization := "com.flipkart"
 
@@ -14,7 +13,6 @@ addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.fu
 licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
 
 
-repository in bintray := "maven"
+bintrayRepository := "maven"
 
-bintrayOrganization in bintray := None
-
+bintrayOrganization := None
