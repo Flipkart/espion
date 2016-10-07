@@ -23,7 +23,7 @@ object YourAppRegistry {
   
   jmxReporter.start()
 }
-trait Instrumented extends com.flipkart.metrics..InstrumentedBase {
+trait Instrumented extends com.flipkart.metrics.InstrumentedBase {
   val metricRegistry = YourAppRegistry.metricRegistry
 }
 ```
@@ -50,7 +50,7 @@ class Example extends Instrumented {
 SBT:
 ```
 resolvers += Resolver.jcenterRepo
-libraryDependencies += "com.flipkart" %% "espion" % "1.0.0"
+libraryDependencies += "com.flipkart" %% "espion" % "1.0.3"
 ```
 
 Then following in build.sbt
@@ -67,7 +67,7 @@ Maven:
 <dependency>
     <groupId>com.flipkart</groupId>
     <artifactId>espion_${scala.dep.version}</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.3</version>
 </dependency>
 <repositories>
   <repository>
@@ -79,7 +79,10 @@ Maven:
     <url>http://jcenter.bintray.com</url>
   </repository>
 </repositories>
+<!-- You will also need to add this compiler plugin http://docs.scala-lang.org/overviews/macros/paradise.html -->
 ```
+
+
 
 
 

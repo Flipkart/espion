@@ -1,6 +1,6 @@
 package com.flipkart.metrics
 
-import com.codahale.metrics.{MetricRegistry, Meter, Counter}
+import com.codahale.metrics.{Counter, Meter, MetricRegistry, Timer}
 
 /**
  * Created by kinshuk.bairagi on 11/02/16.
@@ -23,6 +23,9 @@ trait InstrumentedBase {
   def counter(metricName: String): Counter = registry.counter(getMetricName(metricName))
 
   def meter(metricName: String): Meter = registry.meter(getMetricName(metricName))
+
+  def timer(metricName: String): Timer = registry.timer(getMetricName(metricName))
+
 
 }
 

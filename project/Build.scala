@@ -6,7 +6,7 @@ object Utils extends Build {
   val branch = Process("git" :: "rev-parse" :: "--abbrev-ref" :: "HEAD" :: Nil).!!.trim
   val suffix = if (branch == "master") "" else "-SNAPSHOT"
 
-  val libVersion = "1.0.1" + suffix
+  val libVersion = "1.0.3" + suffix
 
 
   def scalacOptionsVersion(sv: String): Seq[String] = {
@@ -46,7 +46,6 @@ object Utils extends Build {
 
     // Sonatype publishing
     publishArtifact in Test := false,
-    pomIncludeRepository := { _ => false },
     publishMavenStyle := true,
     autoAPIMappings := true,
     apiURL := Some(url("https://github.com/Flipkart/espion")),
