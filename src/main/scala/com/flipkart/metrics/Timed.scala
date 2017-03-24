@@ -35,24 +35,33 @@ object TimedImpl {
     }
 
     val result = {
+      val annotationParams = extractAnnotationParameters(c.prefix.tree)
+      val meterName = annotationParams.map(getMeterName).head
+
       annottees.map(_.tree).toList match {
+        case q"$mods def $tname[..$tparams](...$paramss): Future[$tpt] = { ..$body }" :: Nil =>
+          q"""
+             $mods def $tname[..$tparams](...$paramss): Future[$tpt] = {
+               val context = registry.timer(getMetricName($meterName)).time()
+               val result = {
+                  ..$body
+               }
+               result.andThen { case _ => context.stop() }(scala.concurrent.ExecutionContext.Implicits.global)
+               result
+              }
+           """
+
         case q"$mods def $tname[..$tparams](...$paramss): $tpt = { ..$body }" :: Nil =>
-
-          val annotationParams = extractAnnotationParameters(c.prefix.tree)
-          val meterName = annotationParams.map(getMeterName).head
-
           q"""
              $mods def $tname[..$tparams](...$paramss): $tpt = {
-               val timer = registry.timer(getMetricName($meterName))
-               val context = timer.time()
+               val context = registry.timer(getMetricName($meterName)).time()
                try {
                ..$body
                } finally {
                   context.stop()
-             }
+               }
              }
            """
-
       }
 
     }

@@ -6,7 +6,7 @@ object Utils extends Build {
   val branch = Process("git" :: "rev-parse" :: "--abbrev-ref" :: "HEAD" :: Nil).!!.trim
   val suffix = if (branch == "master") "" else "-SNAPSHOT"
 
-  val libVersion = "1.0.3" + suffix
+  val libVersion = "1.0.4" + suffix
 
 
   def scalacOptionsVersion(sv: String): Seq[String] = {
