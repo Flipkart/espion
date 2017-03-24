@@ -41,6 +41,11 @@ class Example extends Instrumented {
   def writeData(obj:MyClass) {
     db.write(obj)
   }
+  
+  @Timed("writeAsync")
+  def writeDataAsync(obj:MyClass):Future[Boolean]= {
+    db.asyncWrite(obj)
+  }
 
 }
 ```
@@ -50,7 +55,7 @@ class Example extends Instrumented {
 SBT:
 ```
 resolvers += Resolver.jcenterRepo
-libraryDependencies += "com.flipkart" %% "espion" % "1.0.3"
+libraryDependencies += "com.flipkart" %% "espion" % "1.0.4"
 ```
 
 Then following in build.sbt
@@ -67,7 +72,7 @@ Maven:
 <dependency>
     <groupId>com.flipkart</groupId>
     <artifactId>espion_${scala.dep.version}</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 </dependency>
 <repositories>
   <repository>
@@ -81,8 +86,6 @@ Maven:
 </repositories>
 <!-- You will also need to add this compiler plugin http://docs.scala-lang.org/overviews/macros/paradise.html -->
 ```
-
-
 
 
 
