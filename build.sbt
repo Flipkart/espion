@@ -5,7 +5,7 @@ name := "espion"
 
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-reflect" % "2.11.7",
-  "io.dropwizard.metrics" % "metrics-core" % "3.1.0"
+  "io.dropwizard.metrics5" % "metrics-core" % "5.0.0"
 )
 
 addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
